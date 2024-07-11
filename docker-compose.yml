@@ -10,7 +10,7 @@ services:
       - "--entrypoints.web.address=:80"
       - "--entrypoints.websecure.address=:443"
       - "--certificatesresolvers.myresolver.acme.tlschallenge=true"
-      - "--certificatesresolvers.myresolver.acme.email=yourEmail@example.com"
+      - "--certificatesresolvers.myresolver.acme.email=info@tvoelkner.de"
       - "--certificatesresolvers.myresolver.acme.storage=/letsencrypt/acme.json"
     ports:
       - "80:80"
@@ -20,7 +20,7 @@ services:
       - "/var/run/docker.sock:/var/run/docker.sock:ro"
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.traefik.rule=Host(`traefik.example.com`)"
+      - "traefik.http.routers.traefik.rule=Host(`linux.tvoelkner.de`)"
       - "traefik.http.routers.traefik.entrypoints=websecure"
       - "traefik.http.routers.traefik.service=api@internal"
       - "traefik.http.routers.traefik.tls.certresolver=myresolver"      
@@ -43,7 +43,7 @@ services:
       - plausible-conf.env
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.plausible.rule=Host(`plausible.example.com`)"
+      - "traefik.http.routers.plausible.rule=Host(`linux.tvoelkner.de`)"
       - "traefik.http.routers.plausible.entrypoints=websecure"
       - "traefik.http.routers.plausible.tls.certresolver=myresolver"
 
